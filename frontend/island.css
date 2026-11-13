@@ -1,0 +1,104 @@
+:root {
+  color-scheme: dark;
+  font-family: "Segoe UI", "Microsoft YaHei UI", system-ui, sans-serif;
+  --island-bg: #000000;
+  --island-text: #f4f6fb;
+  --island-muted: #b4bdcd;
+  --island-accent: #afc1ff;
+  --island-rule: #3b404c;
+}
+* { box-sizing: border-box; }
+html, body { height: 100%; margin: 0; background: transparent; overflow: hidden; }
+[hidden] { display: none !important; }
+#island { position: absolute; inset: 0; background: #000000 !important; color: var(--island-text); clip-path: inset(0 12% 0 round 0 0 15px 15px); }
+button {
+  font: inherit;
+  color: inherit;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+}
+button:focus-visible { outline: 2px solid var(--island-accent); outline-offset: -3px; border-radius: 8px; }
+#summary {
+  position: absolute;
+  inset: 3px auto auto 50%;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: var(--island-body-width, 150px);
+  height: 35px;
+  gap: 8px;
+  padding: 0 12px;
+  white-space: nowrap;
+  font-size: 13px;
+}
+#summary-title, #current-page, .message-title, .message-detail { min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+#summary-title { font-weight: 600; }
+#indicator { width: 7px; height: 7px; flex: none; border-radius: 50%; background: var(--island-accent); }
+#indicator[data-status="running"] { width: 13px; height: 13px; background: transparent; border: 1.5px solid #7482af; border-top-color: #d7e0ff; }
+#indicator[data-status="success"] { background: #a7d7c5; }
+#indicator[data-status="error"] { background: #ffb5b3; }
+#chevron {
+  width: 5px;
+  height: 5px;
+  flex: none;
+  margin-left: 2px;
+  border: solid var(--island-muted);
+  border-width: 0 1.5px 1.5px 0;
+  transform: translateY(-2px) rotate(45deg);
+}
+#summary-status, .message-progress { color: var(--island-accent); font-variant-numeric: tabular-nums; white-space: nowrap; }
+progress { appearance: none; border: 0; height: 5px; border-radius: 6px; overflow: hidden; }
+progress::-webkit-progress-bar { background: #414857; }
+progress::-webkit-progress-value { border-radius: inherit; background: var(--island-accent); }
+#summary-progress { width: 42px; flex: none; }
+#activities {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  width: var(--island-body-width);
+  height: 100%;
+  margin: auto;
+  padding: 12px 16px;
+  display: flex;
+  flex-direction: column;
+}
+header { display: flex; align-items: center; gap: 8px; min-height: 34px; padding-bottom: 7px; border-bottom: 1px solid var(--island-rule); }
+h1 { font-size: 15px; margin: 0 auto 0 0; white-space: nowrap; }
+#current-page { border-radius: 7px; padding: 4px 7px; background: #30343f; color: #e0e6f3; font-size: 11px; }
+#collapse { width: 26px; height: 26px; flex: none; font-size: 18px; line-height: 1; color: var(--island-muted); border-radius: 7px; }
+#collapse:hover { background: #30343f; color: var(--island-text); }
+#items { min-height: 0; overflow: auto; scrollbar-width: thin; }
+.message {
+  min-height: 59px;
+  padding: 10px 0;
+  display: grid;
+  grid-template-columns: 28px minmax(0, 1fr) auto auto;
+  grid-template-rows: auto auto;
+  column-gap: 9px;
+  align-items: center;
+}
+.message + .message { border-top: 1px solid var(--island-rule); }
+.message-icon {
+  width: 27px;
+  height: 27px;
+  display: grid;
+  place-items: center;
+  grid-row: span 2;
+  border-radius: 7px;
+  color: var(--island-accent);
+  background: #30394f;
+  font-size: 14px;
+}
+.message[data-status="success"] .message-icon { color: #a7d7c5; background: #2c3a36; }
+.message[data-status="error"] .message-icon { color: #ffb5b3; background: #452d33; }
+.message-title { grid-column: 2; grid-row: 1; font-size: 13px; font-weight: 600; }
+.message-detail { grid-column: 2; grid-row: 2; }
+.message-detail, .empty { font-size: 12px; color: var(--island-muted); }
+.message-progress { grid-column: 3; grid-row: 1 / 3; font-size: 13px; }
+.message-action { grid-column: 4; grid-row: 1 / 3; min-height: 26px; padding: 0 7px; border-radius: 6px; color: #d5dfff; font-size: 12px; }
+.message-action:hover { background: #30343f; }
+.message progress { grid-column: 2 / -1; grid-row: 3; width: 100%; margin-top: 8px; }
+.empty { padding: 15px 0; margin: 0; }
+

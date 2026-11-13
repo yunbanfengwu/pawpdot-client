@@ -1,0 +1,12 @@
+{
+  "id": "pawpdot-phone-connector",
+  "name": "手机连接",
+  "version": "0.1.0",
+  "harness": "0.2.1-rc.5",
+  "platforms": ["desktop", "web"],
+  "group": "local",
+  "protocols": ["teamseek.direct.v1", "teamseek.harness.v1"],
+  "dataScope": "actor/tenant/space/execution-home",
+  "capabilities": ["pairing-qr", "device-revoke", "harness-conversation", "native-rpc-streams", "directory", "image-message", "file-reference", "lan-listener"],
+  "notMigrated": ["existing-device-credentials", "public-relay-deployment", "android-apk-release", "pi-engine", "desktop-screen-control"]
+}

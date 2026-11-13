@@ -1,0 +1,53 @@
+html {
+  /* The inset workbench keeps its painted edge inside the outer frame. */
+  --paw-window-radius: 11px;
+  --paw-caption-safe-area: 42px;
+  --dsh-frame-overlay-top: calc(var(--paw-caption-safe-area) + 12px);
+  --paw-window-border: #e5e5e5;
+  height: 100%;
+  overflow: hidden;
+  background: transparent !important;
+  --paw-focus: #0052d9;
+  --paw-sidebar: transparent;
+  --paw-font: "Segoe UI", "Microsoft YaHei UI", system-ui, sans-serif;
+}
+
+html[data-pawpdot-maximized] {
+  --paw-window-radius: 0px;
+}
+
+html body {
+  height: 100%;
+  margin: 0;
+  background: #fff !important;
+  border: 1px solid var(--paw-window-border);
+  border-radius: var(--paw-window-radius);
+  box-sizing: border-box;
+  overflow: clip;
+  contain: paint;
+  --dsw-font-family: var(--paw-font) !important;
+  --dsh-font-family-text: var(--paw-font) !important;
+  --dsw-focus-ring-color: var(--paw-focus) !important;
+}
+
+html body[data-ds-dark-theme] { background: #171717 !important; }
+
+html body:not([data-ds-dark-theme]) {
+  --dsw-specific-sidebar-fill: var(--paw-sidebar) !important;
+}
+
+html body[data-ds-dark-theme] {
+  --paw-focus: #91adff;
+  --paw-window-border: #3c3c3c;
+}
+
+/* The workbench background reaches the window edge. Only its content clears
+   the shell's drag and button hit areas. */
+[data-slot="root"] > :has(> [data-shell-overlay]) {
+  padding-top: var(--paw-caption-safe-area);
+}
+
+:focus-visible {
+  outline: 2px solid var(--dsw-focus-ring-color, var(--paw-focus)) !important;
+  outline-offset: 2px;
+}

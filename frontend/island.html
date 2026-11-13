@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; style-src 'self'; script-src 'self'; base-uri 'none'">
+  <title>PawPdot 灵动岛</title>
+  <link rel="stylesheet" href="island.css">
+  <script src="island.js" defer></script>
+</head>
+<body>
+  <div id="island">
+    <button id="summary" type="button" aria-expanded="false" aria-controls="activities" aria-label="展开活动">
+      <span id="indicator" aria-hidden="true"></span>
+      <span id="summary-title">PawPdot</span>
+      <progress id="summary-progress" max="100" hidden></progress>
+      <span id="summary-status" hidden></span>
+      <span id="chevron" aria-hidden="true"></span>
+    </button>
+    <section id="activities" aria-labelledby="heading" aria-hidden="true" inert>
+      <header>
+        <h1 id="heading">活动</h1>
+        <span id="current-page"></span>
+        <button type="button" id="collapse" aria-label="收起活动" title="收起活动">×</button>
+      </header>
+      <div id="items" aria-live="polite"></div>
+    </section>
+  </div>
+</body>
+</html>
+

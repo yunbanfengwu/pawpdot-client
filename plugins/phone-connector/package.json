@@ -1,0 +1,20 @@
+{
+  "name": "@pawpdot/phone-connector",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./client": "./relay-client.js"
+  },
+  "dependencies": {
+    "qrcode": "1.5.4"
+  },
+  "dsh": {
+    "client": {
+      "inject": [],
+      "platform": "web"
+    }
+  }
+}

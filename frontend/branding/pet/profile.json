@@ -1,0 +1,18 @@
+{
+  "version": 1,
+  "id": "fox",
+  "name": "小狐狸",
+  "model": "fox.glb",
+  "modelHeading": 0,
+  "rest": "Idle",
+  "routine": [
+    { "clip": "Walk", "seconds": 4.2, "pace": 0.72 },
+    { "clip": "Eating", "seconds": 2.6 },
+    { "clip": "Walk", "seconds": 3.0, "pace": 0.72 },
+    { "clip": "Idle_2_HeadLow", "seconds": 4.2 },
+    { "clip": "Idle_2", "seconds": 2.0 },
+    { "clip": "Gallop", "seconds": 1.2, "pace": 1.4 },
+    { "clip": "Jump_ToIdle", "seconds": 0.9, "pace": 0.6 },
+    { "clip": "Idle", "seconds": 2.7 }
+  ]
+}

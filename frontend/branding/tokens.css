@@ -1,0 +1,148 @@
+@import url("../fonts/fonts.css?v=2");
+/* ============================================================
+   AuDoter 统一设计令牌（Design Tokens）
+   任务：work-fc7e3bad-3acc-42e6-97ba-6853ae12d978（AUDOTER-VISUAL-SPEC）
+   本文件是颜色/字体/间距/圆角/投影/层次的唯一权威来源。
+   规范文档：docs/design/视觉规范.md（两者必须同步修改）。
+
+   用法：在页面 <head> 先引入本文件，再引入 components.css。
+   业务代码只允许引用这里的变量，禁止硬编码色值/字号/间距。
+   ============================================================ */
+
+:root {
+  color-scheme: light;
+
+  /* ---------- 中性灰阶（页面基调：柔和、低对比分层） ---------- */
+  --ad-gray-0:   #ffffff; /* 表面（卡片、输入框） */
+  --ad-gray-25:  #fafafb; /* 轻微沉降的表面 */
+  --ad-gray-50:  #f4f5f7; /* 页面背景 */
+  --ad-gray-100: #ecedf0; /* 骨架屏、次级填充、中性按钮 */
+  --ad-gray-200: #e2e4e8; /* 输入描边、轨道、禁用描边 */
+  --ad-gray-300: #c6cad1; /* 强描边、禁用文字 */
+  --ad-gray-400: #9aa0aa; /* 占位符、装饰图标（不作正文） */
+  --ad-gray-500: #6c7280; /* 次要文字（白底 ≥4.5:1） */
+  --ad-gray-600: #575d68; /* 次要强调文字 */
+  --ad-gray-700: #40464f; /* 正文 */
+  --ad-gray-800: #2b3037; /* 标题 */
+  --ad-gray-900: #1d2126; /* 最强标题、选中文字备选 */
+
+  /* ---------- 主色（明亮纯蓝，用于主操作/链接/焦点） ---------- */
+  --ad-accent-50:  #eaf2ff; /* 信息提示浅底 */
+  --ad-accent-100: #cfe1ff; /* 输入聚焦光晕 */
+  --ad-accent-500: #0066ff; /* 主按钮、主色实底；配白字 */
+  --ad-accent-600: #0052d9; /* 主按钮悬停、链接文字 */
+  --ad-accent-700: #0044b5; /* 主按钮按下、信息提示文字 */
+
+  /* ---------- 语义色（配对使用：浅底 + 深字，保证对比度） ---------- */
+  --ad-success-50:  #e9f3ec;
+  --ad-success-500: #2f7d52;
+  --ad-success-700: #1d5b3a;
+
+  --ad-warning-50:  #faf2e2;
+  --ad-warning-500: #b07a1e;
+  --ad-warning-700: #7e5a10;
+
+  --ad-danger-50:  #faecec;
+  --ad-danger-500: #d92d3d;
+  --ad-danger-600: #bc2031;
+  --ad-danger-700: #9f1c2c;
+
+  /* ---------- 语义映射（组件只允许使用这一层） ---------- */
+  --ad-text-primary:     var(--ad-gray-700);
+  --ad-text-secondary:   var(--ad-gray-500);
+  --ad-text-muted:       var(--ad-gray-400);
+  --ad-text-disabled:    var(--ad-gray-400);
+  --ad-text-strong:      var(--ad-gray-900);
+  --ad-text-on-accent:   #ffffff;
+  --ad-text-link:        var(--ad-accent-600);
+
+  --ad-bg-page:          var(--ad-gray-50);
+  --ad-bg-surface:       var(--ad-gray-0);
+  --ad-bg-sunken:        var(--ad-gray-100);
+  --ad-bg-hover:         var(--ad-gray-100);
+  --ad-bg-active:        var(--ad-gray-200);
+  --ad-bg-selected:      #eeeeee;                 /* 选中态=浅灰完整背景，集中在此调整 */
+  --ad-bg-selected-text: #000000;                 /* 选中态黑字，图标继承 */
+
+  --ad-border-input:  var(--ad-gray-200); /* 仅输入类控件允许描边 */
+  --ad-border-strong: var(--ad-gray-300);
+  --ad-focus-color:   var(--ad-accent-500);
+  --ad-dialog-backdrop: rgba(29, 33, 38, 0.30);
+  --ad-action-neutral: #000000;
+  --ad-action-neutral-hover: var(--ad-gray-800);
+  --ad-text-on-neutral: var(--ad-gray-0);
+  --ad-startup-bg: var(--ad-bg-surface);
+  --ad-startup-brand: var(--ad-action-neutral);
+  --ad-startup-status: var(--ad-text-secondary);
+  --ad-startup-track: var(--ad-bg-sunken);
+  --ad-loading-cycle: 1000ms;
+
+  /* ---------- 字体 ---------- */
+  --ad-font-sans: "Alibaba PuHuiTi 3", system-ui, -apple-system, "Segoe UI", "PingFang SC",
+    "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC", sans-serif;
+  --ad-font-mono: ui-monospace, "Cascadia Mono", Consolas,
+    "SFMono-Regular", Menlo, monospace;
+
+  --ad-text-xs:  12px; /* 辅助说明、徽标 */
+  --ad-text-sm:  13px; /* 次要文字、标签 */
+  --ad-text-md:  14px; /* 正文与控件默认 */
+  --ad-text-lg:  16px; /* 卡片标题、区块小标题 */
+  --ad-text-xl:  20px; /* 区块标题 */
+  --ad-text-2xl: 24px; /* 页面标题（最大字号，禁止更大的装饰数字） */
+
+  --ad-leading-tight:  1.3; /* 标题 */
+  --ad-leading-normal: 1.5; /* 正文 */
+
+  --ad-weight-light:    300; /* 会话正文与输入文字 */
+  --ad-weight-regular:  400;
+  --ad-weight-medium:   500;
+  --ad-weight-semibold: 600;
+
+  /* ---------- 间距（4px 基数） ---------- */
+  --ad-space-1: 4px;
+  --ad-space-2: 8px;
+  --ad-space-3: 12px;
+  --ad-space-4: 16px;
+  --ad-space-5: 24px;
+  --ad-space-6: 32px;
+  --ad-space-7: 48px;
+  --ad-space-8: 64px;
+
+  /* ---------- 圆角 ---------- */
+  --ad-radius-xs:   4px;   /* 复选框 */
+  --ad-radius-sm:   6px;   /* 小按钮、徽标内元素 */
+  --ad-radius-md:   8px;   /* 按钮、输入框、列表项 */
+  --ad-radius-lg:   12px;  /* 卡片、面板 */
+  --ad-radius-dialog: 24px; /* 原生风格弹窗 */
+  --ad-radius-pill: 999px; /* 徽标、开关、分段容器 */
+
+  /* ---------- 投影（仅浮层；x 恒为 0；禁止 inset） ---------- */
+  --ad-shadow-1: 0 1px 2px rgba(29, 33, 38, 0.06);   /* 轻浮起：分段选中项 */
+  --ad-shadow-2: 0 4px 16px rgba(29, 33, 38, 0.10);  /* 下拉、气泡、跳转链接提示 */
+  --ad-shadow-3: 0 12px 32px rgba(29, 33, 38, 0.14); /* 模态、抽屉 */
+
+  /* ---------- 层次（z-index 阶梯） ---------- */
+  --ad-z-base:     0;
+  --ad-z-nav:      20;
+  --ad-z-dropdown: 100;
+  --ad-z-overlay:  200;
+  --ad-z-toast:    300;
+
+  /* ---------- 布局 ---------- */
+  --ad-sidebar-width: 232px;  /* 宽屏侧栏宽度 */
+  --ad-content-max:   1200px; /* 内容区最大宽度 */
+  /* 窄屏断点：720px（媒体查询中直接写 720px，见 components.css） */
+
+  /* ---------- 动效 ---------- */
+  --ad-duration-fast:  120ms;
+  --ad-duration-quick: 180ms;
+  --ad-ease-standard:  cubic-bezier(0.2, 0, 0, 1);
+  /* 用户指定：AI空间四周彩色柔光，不用于单侧选中条。 */
+  --ad-ai-flow-cycle: 6s; /* 连续任务状态流动周期，不是控件切换时长 */
+  --ad-ai-glow-purple: #a977ff70;
+  --ad-ai-glow-blue: #529dff7a;
+  --ad-ai-glow-cyan: #20d7f580;
+  --ad-ai-glow-mint: #70ecd65c;
+  --ad-ai-glow-mask: #000;
+  --ad-ai-glow-background: conic-gradient(from 25deg, var(--ad-ai-glow-purple), var(--ad-ai-glow-blue), var(--ad-ai-glow-cyan), var(--ad-ai-glow-mint), var(--ad-ai-glow-purple));
+}

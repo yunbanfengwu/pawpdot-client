@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta http-equiv="Content-Security-Policy" content="default-src 'none'; script-src 'self' 'wasm-unsafe-eval'; style-src 'self'; connect-src 'self' blob:; img-src 'self' blob: data:; font-src 'self'; object-src 'none'; base-uri 'none'">
+  <title>宠物家园与旅行</title>
+  <link rel="stylesheet" href="game.css">
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <main id="world" aria-label="宠物的家园">
+    <canvas id="scene" aria-label="3D 宠物房间，点击地面让宠物走过去" tabindex="0"></canvas>
+    <header class="toolbar">
+      <div class="identity"><span class="wordmark">家与远行</span><span id="pet-name">你的伙伴，自己的小世界</span></div>
+      <nav aria-label="家园操作">
+        <button id="market" type="button">宠物</button>
+        <button id="furnish" type="button">添置家具</button>
+        <button id="travel" type="button">去旅行</button>
+        <button id="ambience" type="button">切换暮色</button>
+        <button id="expand" type="button">专注家园</button>
+        <button id="work" class="primary" type="button">去工作</button>
+      </nav>
+    </header>
+    <div class="scene-caption"><span class="location" id="location">阳光小屋</span><span id="behavior" role="status">正在准备家园…</span></div>
+    <div class="wallet" id="wallet" hidden><span>旅途币</span><strong id="coins">120</strong></div>
+    <div id="empty" class="empty" hidden><h1>家已备好，等一位伙伴</h1><button id="adopt" class="primary" type="button">领养宠物</button></div>
+    <div id="selection" class="selection" hidden><span id="selection-name"></span><button id="rotate" type="button">旋转</button><button id="put-away" type="button">收纳</button><button id="finish-edit" class="primary" type="button">完成布置</button></div>
+    <div id="pet-actions" class="pet-actions" hidden><button data-pet-action="idle" type="button">陪伴</button><button data-pet-action="eat" type="button">吃点东西</button><button data-pet-action="sleep" type="button">休息</button><button data-pet-action="jump" type="button">玩一会儿</button></div>
+    <div id="trip-status" class="trip-status" hidden><span id="trip-text"></span><button id="return" type="button">提前回家</button></div>
+    <div id="message" class="message" role="status" hidden></div>
+    <button id="retry" class="retry primary" type="button" hidden>重新加载家园</button>
+  </main>
+  <dialog id="panel" aria-labelledby="panel-title">
+    <header><div><h2 id="panel-title"></h2><p id="panel-description"></p></div><button id="close-panel" type="button" aria-label="关闭面板">关闭</button></header>
+    <div id="panel-content"></div>
+  </dialog>
+</body>
+</html>

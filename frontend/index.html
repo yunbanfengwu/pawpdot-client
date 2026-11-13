@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; base-uri 'none'">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PawPdot</title>
+    <link rel="stylesheet" href="shell.css">
+    <script src="shell.js" defer></script>
+  </head>
+  <body>
+    <div class="shell">
+      <header class="titlebar">
+        <div class="titlebar-drag" aria-hidden="true"></div>
+        <div class="titlebar-controls" role="group" aria-label="窗口操作">
+          <button type="button" id="minimize" aria-label="最小化" title="最小化">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 8h9"/></svg>
+          </button>
+          <button type="button" id="maximize" aria-label="最大化" title="最大化">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="M3.5 3.5h9v9h-9z"/></svg>
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true" hidden><path d="M6 5.5v-2h6.5V10h-2m-7-4.5h7v7h-7z"/></svg>
+          </button>
+          <button type="button" id="close" aria-label="关闭窗口" title="关闭窗口">
+            <svg width="16" height="16" viewBox="0 0 16 16" aria-hidden="true"><path d="m4 4 8 8m0-8-8 8"/></svg>
+          </button>
+        </div>
+      </header>
+
+      <main class="launch">
+        <section class="launch-content">
+          <img class="mark" src="../assets/brand/pawpdot-mark.svg" width="64" height="48" alt="">
+          <h1>PawPdot</h1>
+          <p id="status" role="status">
+            <svg class="spinner" width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+              <circle cx="8" cy="8" r="5.5" stroke="currentColor" opacity=".2"/>
+              <path d="M8 2.5A5.5 5.5 0 0 1 13.5 8" stroke="currentColor" stroke-linecap="round"/>
+            </svg>
+            正在启动…
+          </p>
+          <button class="retry" type="button" id="retry" hidden>重试</button>
+        </section>
+      </main>
+    </div>
+  </body>
+</html>

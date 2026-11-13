@@ -1,0 +1,16 @@
+{
+  "name": "@pawpdot/pet-home",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "index.mjs",
+  "exports": { ".": "./index.mjs", "./client": "./client.js", "./package.json": "./package.json", "./locale/*.json": "./locale/*.json" },
+  "description": "与主宠物共享身份的 3D 家园，可布置家具、旅行并收集纪念品",
+  "engines": { "dsh": ">=0.2.2-rc.2 <0.3.0" },
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": { "platform": "web", "inject": ["@pawpdot/client-pet", "@deepseek-ai/dsh-client-ui-conversation", "@deepseek-ai/dsh-client-ui-plugin-manager"] }
+  },
+  "scripts": { "build": "node build.mjs", "test": "node --test game.test.mjs" },
+  "devDependencies": { "three": "0.179.1", "esbuild": "0.25.12" }
+}

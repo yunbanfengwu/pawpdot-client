@@ -1,0 +1,46 @@
+#pawpdot-simple-wallpaper {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: transparent center / cover no-repeat;
+  background-color: transparent;
+}
+
+[data-slot="root"] { position: relative; z-index: 1; }
+
+.pawpdot-island-settings {
+  display: grid;
+  gap: 12px;
+  padding: 14px 0 4px;
+}
+
+.pawpdot-island-settings label {
+  display: grid;
+  gap: 6px;
+  color: var(--dsw-alias-label-secondary);
+  font-size: 12px;
+}
+
+.pawpdot-island-settings select {
+  min-height: 34px;
+  border: 1px solid var(--dsw-alias-border-l3);
+  border-radius: 8px;
+  background: var(--dsw-alias-bg-base);
+  color: var(--dsw-alias-label-primary);
+  padding: 6px 8px;
+}
+
+.pawpdot-island-settings input[type="file"] { font-size: 12px; }
+.pawpdot-island-settings .pawpdot-island-actions { display: flex; align-items: center; gap: 8px; }
+.pawpdot-island-settings button {
+  min-height: 34px;
+  border: 1px solid #000;
+  border-radius: 8px;
+  background: #000;
+  color: #fff;
+  padding: 7px 12px;
+  cursor: pointer;
+}
+.pawpdot-island-settings button.secondary { background: transparent; color: var(--dsw-alias-label-primary); border-color: var(--dsw-alias-border-l3); }
+.pawpdot-island-settings [role="status"] { color: var(--dsw-alias-label-secondary); font-size: 12px; }

@@ -1,0 +1,7 @@
+.pp-world-home { position: absolute; inset: 0; z-index: 0; }
+.pp-world-panel { width: 100%; height: 100%; min-height: 0; flex: 1; }
+.pp-world-home > iframe, .pp-world-panel > iframe { display: block; width: 100%; height: 100%; border: 0; background: transparent; }
+.pawpdot-home-frame:has(.pp-world-home) { isolation: isolate; background: #e9eee4; }
+.pawpdot-home-frame:has(.pp-world-home) > [data-conversation-scroll] { position: relative; z-index: 1; pointer-events: none; background: transparent; }
+.pawpdot-home-frame:has(.pp-world-home) [data-composer-seat] { pointer-events: auto; }
+.pawpdot-home-frame:has(.pp-world-home) [data-composer-seat] [class*="_composerHero"] { padding-bottom: 16px !important; }

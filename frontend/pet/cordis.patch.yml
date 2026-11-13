@@ -1,0 +1,3 @@
+- insert:
+    - id: pawpdot-client-pet
+      name: '@pawpdot/client-pet'

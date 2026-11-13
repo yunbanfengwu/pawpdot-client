@@ -1,0 +1,53 @@
+:root {
+  color-scheme: light;
+  font-family: "Segoe UI", "Microsoft YaHei UI", system-ui, sans-serif;
+  --pet-ink: #182033;
+  --pet-muted: #697386;
+  --pet-surface: rgba(255, 255, 255, .96);
+  --pet-blue: #3158db;
+  --pet-blue-soft: #edf2ff;
+  --pet-border: rgba(24, 32, 51, .1);
+}
+
+* { box-sizing: border-box; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; background: transparent; }
+button { font: inherit; }
+button:focus-visible { outline: 2px solid var(--pet-blue); outline-offset: 3px; }
+.pet-shell { width: 100%; height: 100%; display: grid; place-items: end center; padding: 12px; color: var(--pet-ink); }
+.home-pet { display: grid; justify-items: center; gap: 7px; padding: 8px 12px 12px; pointer-events: auto; }
+.pet-orb {
+  position: relative; display: grid; place-items: center; width: 132px; height: 132px;
+  border-radius: 48% 48% 45% 45%; background: radial-gradient(circle at 35% 24%, #fff 0 9%, transparent 10%), linear-gradient(145deg, #dbe6ff, #90aaf7);
+  box-shadow: 0 18px 34px rgba(49, 88, 219, .22), inset 0 -8px 0 rgba(49, 88, 219, .12);
+}
+.pet-face { position: relative; display: grid; place-items: center; width: 82px; height: 70px; border-radius: 45% 45% 50% 50%; background: #fff; }
+.pet-ear { position: absolute; top: -16px; width: 42px; height: 48px; border-radius: 60% 60% 18% 18%; background: #a8bcff; transform: rotate(-25deg); }
+.pet-ear-left { left: 16px; } .pet-ear-right { right: 16px; transform: rotate(25deg); }
+.pet-eye { position: absolute; top: 29px; width: 8px; height: 11px; border-radius: 50%; background: #182033; }
+.pet-eye-left { left: 23px; } .pet-eye-right { right: 23px; }
+.pet-mouth { position: absolute; bottom: 17px; width: 12px; height: 7px; border-bottom: 2px solid #182033; border-radius: 0 0 50% 50%; }
+.pet-scarf { position: absolute; bottom: 17px; width: 68px; height: 18px; border-radius: 50%; background: #f2c48e; transform: rotate(-4deg); }
+.pet-caption { display: grid; justify-items: center; gap: 1px; text-align: center; text-shadow: 0 1px 8px rgba(255,255,255,.9); }
+.pet-caption strong { font-size: 14px; } .pet-caption span { font-size: 12px; color: var(--pet-muted); }
+.pet-actions { display: flex; gap: 6px; }
+.pet-action, .icon-button { border: 1px solid var(--pet-border); border-radius: 999px; color: var(--pet-ink); background: var(--pet-surface); cursor: pointer; }
+.pet-action { display: inline-flex; align-items: center; gap: 6px; min-height: 32px; padding: 0 12px; font-size: 12px; }
+.pet-action-primary { border-color: transparent; background: #000; color: #fff; }
+.pet-action:hover, .icon-button:hover { background: var(--pet-blue-soft); }
+.pet-action-primary:hover { background: #2b3037; }
+.adoption { width: min(100%, 350px); padding: 18px; border: 1px solid var(--pet-border); border-radius: 18px; background: var(--pet-surface); box-shadow: 0 18px 46px rgba(24,32,51,.16); }
+.adoption-heading { display: flex; align-items: flex-start; justify-content: space-between; gap: 12px; }
+.eyebrow { margin: 0 0 3px; color: var(--pet-blue); font-size: 11px; font-weight: 600; }
+h1 { margin: 0; font-size: 20px; line-height: 1.25; }
+.adoption-copy { margin: 7px 0 14px; color: var(--pet-muted); font-size: 12px; line-height: 1.45; }
+.icon-button { display: grid; place-items: center; width: 30px; height: 30px; padding: 0; }
+.pet-options { display: grid; gap: 8px; max-height: 286px; overflow: auto; }
+.pet-option { display: flex; align-items: center; gap: 10px; width: 100%; padding: 10px; border: 1px solid var(--pet-border); border-radius: 13px; color: var(--pet-ink); background: #fff; text-align: left; cursor: pointer; }
+.pet-option:hover { background: var(--pet-blue-soft); }
+.pet-option-visual { display: grid; place-items: center; width: 42px; height: 42px; border-radius: 13px; background: linear-gradient(145deg, #dbe6ff, #a7bcff); font-size: 0; }
+.pet-option-visual::before { content: ""; width: 20px; height: 16px; border-radius: 45%; background: #fff; }
+.pet-option-copy { display: grid; gap: 2px; min-width: 0; }
+.pet-option-copy strong { font-size: 13px; } .pet-option-copy span { color: var(--pet-muted); font-size: 11px; }
+.pet-option-action { margin-inline-start: auto; color: var(--pet-blue); font-size: 11px; font-weight: 600; }
+[hidden] { display: none !important; }
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }

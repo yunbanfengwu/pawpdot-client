@@ -1,0 +1,27 @@
+{
+  "name": "@pawpdot/client-pet",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "index.mjs",
+  "icon": "./toy-cat.png",
+  "exports": {
+    ".": "./index.mjs",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./locale/*.json": "./locale/*.json"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": ["@deepseek-ai/dsh-client-ui-conversation", "@deepseek-ai/dsh-client-ui-plugin-manager"]
+    }
+  },
+  "engines": { "dsh": ">=0.2.2-rc.2 <0.3.0" },
+  "scripts": { "build": "node build.mjs" },
+  "devDependencies": { "three": "0.179.1", "esbuild": "0.25.12" },
+  "description": "首页领养与骨骼动画宠物，可独立启停和卸载"
+}

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'none'; img-src 'self'; style-src 'self'; script-src 'self'; base-uri 'none'">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PawPdot 宠物</title>
+    <link rel="stylesheet" href="pet.css">
+    <script src="pet.js" defer></script>
+  </head>
+  <body>
+    <main class="pet-shell" aria-label="PawPdot 宠物">
+      <section id="adoption" class="adoption" hidden aria-labelledby="adoption-title">
+        <div class="adoption-heading">
+          <div>
+            <p class="eyebrow">PawPdot</p>
+            <h1 id="adoption-title">领养一只宠物</h1>
+          </div>
+          <button id="close-adoption" class="icon-button" type="button" aria-label="关闭领养列表" title="关闭领养列表">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="m6 6 12 12M18 6 6 18"/></svg>
+          </button>
+        </div>
+        <p class="adoption-copy">选择后会在首页陪伴你，也可以在之后更换。</p>
+        <div id="pet-options" class="pet-options"></div>
+      </section>
+      <section id="home-pet" class="home-pet" hidden aria-live="polite">
+        <div class="pet-orb">
+          <div class="pet-ear pet-ear-left"></div>
+          <div class="pet-ear pet-ear-right"></div>
+          <div class="pet-face">
+            <span class="pet-eye pet-eye-left"></span>
+            <span class="pet-eye pet-eye-right"></span>
+            <span class="pet-mouth"></span>
+          </div>
+          <div class="pet-scarf"></div>
+        </div>
+        <div class="pet-caption">
+          <strong id="pet-name"></strong>
+          <span id="pet-status"></span>
+        </div>
+        <div class="pet-actions">
+          <button id="pet-talk" class="pet-action pet-action-primary" type="button">
+            <svg width="17" height="17" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round"><path d="M12 3a5 5 0 0 0-5 5v3a5 5 0 0 0 10 0V8a5 5 0 0 0-5-5Z"/><path d="M4 11a8 8 0 0 0 16 0M12 19v3M8 22h8"/></svg>
+            和我聊聊
+          </button>
+          <button id="pet-change" class="pet-action" type="button">更换宠物</button>
+        </div>
+      </section>
+    </main>
+  </body>
+</html>

@@ -1,0 +1,7 @@
+<!doctype html>
+<html lang="zh-CN"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><title>DeepSeek 对话</title>
+<style>
+@import url("fonts/fonts.css?v=2");
+:root{color-scheme:light;font-family:"Alibaba PuHuiTi 3",-apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif;background:#f7f8fa;color:#41474e}*{box-sizing:border-box}body{margin:0;height:100dvh;display:flex;flex-direction:column}#status{font-size:11px;color:#9299a1;padding:6px 24px;min-height:27px}#messages{flex:1;overflow:auto;padding:12px 24px 22px;overscroll-behavior:contain}.message{margin:0 0 24px;line-height:1.9;font-size:15px;white-space:pre-wrap;overflow-wrap:anywhere}.message.user{background:#e9ecef;border-radius:20px;padding:12px 17px;margin-left:24px}.message.assistant{padding:0 3px}.role{font-size:11px;color:#9299a1;margin-bottom:6px}.empty{padding:15vh 0;text-align:center;color:#9299a1;font-size:14px}#error{color:#a66e65;font-size:12px;padding:0 24px;line-height:1.7}#retry{background:transparent;color:#737e87;min-height:30px;padding:3px 0}#error:empty{display:none}
+</style><script src="bridge.js" defer></script><script src="chat.js" defer></script></head>
+<body><div id="status">正在连接当前实例…</div><main id="messages" aria-label="对话内容"><div class="empty">正在读取对话</div></main><div id="error" role="alert"></div></body></html>

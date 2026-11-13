@@ -1,0 +1,14 @@
+{
+  "name": "@pawpdot/dynamic-island",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "main": "index.mjs",
+  "icon": "./icon.svg",
+  "exports": { ".": "./index.mjs", "./client": "./client.js", "./package.json": "./package.json" },
+  "description": "PawPdot 全局灵动岛与轻量壁纸插件",
+  "dsh": {
+    "bundle": { "patch": "./cordis.patch.yml" },
+    "client": { "platform": "web", "inject": ["@deepseek-ai/dsh-client-ui-plugin-manager"] }
+  }
+}

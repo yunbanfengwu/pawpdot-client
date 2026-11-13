@@ -1,0 +1,49 @@
+/* Scoped to the original Harness document's embedding mode. Desktop is untouched. */
+html[data-teamseek-embed] {
+  --dsw-font-family: var(--ad-font-sans);
+  --dsh-font-family-text: var(--ad-font-sans);
+  --dsh-font-family-text-default: var(--ad-font-sans);
+}
+html[data-teamseek-embed],html[data-teamseek-embed] body{width:100%;height:100%;min-width:0;overflow:hidden;overscroll-behavior:none}
+html[data-teamseek-embed] [data-teamseek-frame]{grid-template-columns:0 minmax(0,1fr) 0!important;min-width:0;width:100%;position:relative}
+html[data-teamseek-embed] [data-teamseek-sidebar]{display:none!important}
+html[data-teamseek-embed] [data-teamseek-center]{min-width:0;grid-column:2!important}
+html[data-teamseek-embed] [data-conversation-content]{min-width:0;--dsh-composer-height:0px;--dsh-composer-side-clearance:0px}
+html[data-teamseek-embed] [data-conversation-header-leading]{visibility:hidden;pointer-events:none}
+/* The native shell already owns the title/navigation. Keep only message content. */
+html[data-teamseek-embed][data-teamseek-mode="conversation"] [data-teamseek-conversation-header],
+html[data-teamseek-embed][data-teamseek-mode="conversation"] [data-conversation-tabs]{display:none!important}
+html[data-teamseek-embed] [data-conversation-region="composer"]:not([data-teamseek-interaction]){display:none!important}
+html[data-teamseek-embed] [data-conversation-region="composer"][data-teamseek-interaction]{position:relative;z-index:8}
+html[data-teamseek-embed] [data-rightbar-col]{display:none}
+html[data-teamseek-embed][data-teamseek-workspace] [data-rightbar-col]{display:block;grid-column:3;min-width:0}
+html[data-teamseek-embed][data-teamseek-workspace] [data-teamseek-frame]{grid-template-columns:0 minmax(0,1fr) minmax(300px,40%)!important}
+.teamseek-embed-tools{position:fixed;top:max(8px,env(safe-area-inset-top));right:12px;z-index:80;display:flex;gap:6px}
+.teamseek-embed-tools button{border:0;border-radius:12px;min-height:36px;padding:8px 12px;font:12px/1.4 system-ui;color:var(--dsw-alias-label-primary,var(--ad-text-primary));background:var(--dsw-alias-bg-layer-1,var(--ad-bg-sunken));cursor:pointer;box-shadow:0 2px 12px transparent}
+.teamseek-embed-tools button:focus-visible{outline:2px solid var(--ad-focus-color);outline-offset:2px}
+html[data-teamseek-mode="full"] [data-conversation-region="composer"],html[data-teamseek-mode="input"] [data-conversation-region="composer"]{display:block!important;--dsh-composer-height:152px}
+html[data-teamseek-mode="input"] [data-conversation-scroll]>:not([data-conversation-region="composer"]){display:none!important}
+html[data-teamseek-mode="workspace"] [data-teamseek-center]{visibility:hidden}
+html[data-teamseek-mode="workspace"] [data-rightbar-col]{position:absolute!important;inset:0!important;width:100%!important;max-width:100%!important;display:block!important;z-index:40}
+@media(max-width:767px){
+ html[data-teamseek-embed][data-teamseek-workspace] [data-teamseek-frame]{grid-template-columns:0 minmax(0,1fr) 0!important}
+ html[data-teamseek-embed][data-teamseek-workspace] [data-rightbar-col]{position:absolute!important;inset:52px 8px 8px!important;width:auto!important;max-width:none!important;z-index:40;border-radius:18px;overflow:hidden;background:var(--dsw-alias-bg-layer-1,var(--ad-bg-surface));box-shadow:0 12px 48px transparent}
+ html[data-teamseek-embed][data-teamseek-workspace] [data-rightbar-col]>div{width:100%!important;max-width:100%!important;height:100%!important;inset:0!important;position:absolute!important}
+ html[data-teamseek-embed] [data-conversation-content]{font-size:14px}
+}
+@media(prefers-reduced-motion:reduce){html[data-teamseek-embed] *{scroll-behavior:auto!important}}
+
+html[data-teamseek-embed] [data-sidebar-right-panel]{width:100%!important;max-width:100%!important;--dsh-sidebar-width:100%!important}
+/* Pilot: workspace UI is deferred; do not offer a dead-end empty work panel. */
+html[data-teamseek-lean] [data-sidebar-right-expand]{display:none!important}
+/* Mobile shell palette and readable prose; leave the desktop theme intact. */
+html[data-teamseek-embed]{color-scheme:light;--dsw-alias-bg-base:var(--ad-bg-surface);--dsw-alias-bg-layer-1:var(--ad-bg-surface);--dsw-alias-label-primary:var(--ad-text-strong);--dsw-alias-label-secondary:var(--ad-text-secondary);--dsw-alias-state-business-primary:var(--ad-action-neutral);--dsw-specific-bubble:var(--ad-bg-page);--dsh-content-font-size:16px;--dsh-content-font-size-secondary:14px;--dsh-content-font-delta:2px;--dsh-content-font-delta-secondary:1px}
+html[data-teamseek-embed] body{background:var(--ad-bg-surface);color:var(--ad-text-strong);font-family:var(--ad-font-sans)}
+html[data-teamseek-embed] [data-conversation-content]{font-size:16px;background:var(--ad-bg-surface)}
+html[data-teamseek-embed] [data-conversation-region="composer"]{background:var(--ad-bg-surface)}
+
+html[data-teamseek-embed] [data-message-bubble],
+html[data-teamseek-embed] [data-chat-flow-kind="assistant"] :is(p, li, blockquote, td):not([data-turn-process-inline] *),
+html[data-teamseek-embed] [data-conversation-region="composer"] [data-composer-input] {
+  font-weight: var(--ad-weight-light);
+}

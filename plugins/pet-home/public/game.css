@@ -1,0 +1,74 @@
+:root { font-family: "Segoe UI", "Microsoft YaHei", sans-serif; color: #344039; background: transparent; color-scheme: light; }
+* { box-sizing: border-box; }
+html, body, #world { width: 100%; height: 100%; margin: 0; overflow: hidden; }
+button { font: inherit; font-size: 13px; color: inherit; padding: 10px 15px; border: 1px solid #d1d8ce; border-radius: 9px; background: #fdfefa; cursor: pointer; }
+button:hover { background: #edf1e7; }
+button:focus-visible, canvas:focus-visible { outline: 2px solid #3d6655; outline-offset: 3px; }
+button.primary { background: #000; color: #fff; border-color: #000; }
+button.primary:hover { background: #252525; }
+button:disabled { opacity: .45; cursor: default; }
+[hidden] { display: none !important; }
+#world { position: relative; }
+#scene { display: block; width: 100%; height: 100%; touch-action: none; background: transparent !important; }
+.toolbar { position: absolute; inset: 24px 28px auto; display: flex; align-items: center; justify-content: space-between; gap: 20px; pointer-events: none; }
+.identity { display: flex; flex-direction: column; gap: 5px; }
+.wordmark { font-size: 21px; font-weight: 650; letter-spacing: -.7px; }
+#pet-name { color: #6d796f; font-size: 12px; }
+.toolbar nav { display: flex; gap: 7px; pointer-events: auto; }
+.toolbar button { box-shadow: 0 3px 12px #4f61460a; }
+.scene-caption { position: absolute; left: 30px; bottom: 28px; display: flex; flex-direction: column; gap: 6px; pointer-events: none; }
+.location { font-size: 14px; font-weight: 600; }
+#behavior { font-size: 12px; color: #758171; }
+.wallet { position: absolute; right: 30px; top: 86px; display: flex; align-items: baseline; gap: 8px; font-size: 11px; color: #77816f; }
+.wallet strong { font-size: 20px; font-weight: 600; color: #4a593c; font-variant-numeric: tabular-nums; }
+.empty { position: absolute; left: 50%; bottom: 65px; transform: translateX(-50%); padding: 16px 24px; text-align: center; border-radius: 14px; background: #f9fbf5ed; }
+.empty h1 { font-size: 16px; font-weight: 500; margin: 0 0 13px; white-space: nowrap; }
+.selection, .pet-actions, .trip-status { position: absolute; bottom: 24px; left: 50%; transform: translateX(-50%); display: flex; align-items: center; gap: 8px; padding: 8px; border: 1px solid #d4dbcf; border-radius: 13px; background: #f9fbf5f5; box-shadow: 0 8px 32px #39473313; }
+.selection span { padding: 0 8px; font-size: 12px; white-space: nowrap; }
+.selection button, .pet-actions button, .trip-status button { padding: 8px 12px; white-space: nowrap; }
+.trip-status { left: auto; right: 26px; transform: none; font-size: 12px; }
+.message { position: absolute; left: 50%; top: 82px; transform: translateX(-50%); max-width: min(460px, 80%); padding: 11px 18px; background: #fff; border: 1px solid #d7dfd0; border-radius: 10px; box-shadow: 0 8px 30px #39473314; font-size: 13px; }
+.retry { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%); }
+dialog { width: min(720px, calc(100% - 32px)); max-height: calc(100% - 40px); overflow-y: auto; padding: 25px; border: 1px solid #d5dcd0; border-radius: 18px; color: #344039; background: #f8faf5; box-shadow: 0 20px 100px #20322230; }
+dialog::backdrop { background: #24312544; backdrop-filter: blur(5px); }
+dialog > header { display: flex; align-items: start; justify-content: space-between; gap: 18px; margin-bottom: 20px; }
+dialog h2 { margin: 0; font-size: 22px; letter-spacing: -.7px; }
+dialog header p { margin: 8px 0 0; color: #74806e; font-size: 12px; line-height: 1.6; }
+.catalog { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; }
+.catalog article { display: flex; flex-direction: column; min-width: 0; }
+.catalog img { display: block; width: 100%; aspect-ratio: 1; object-fit: contain; background: #edf1e8; border-radius: 10px; }
+.catalog h3 { margin: 12px 0 5px; font-size: 13px; }
+.catalog p { font-size: 11px; color: #75806d; margin: 0 0 12px; }
+.catalog button { margin-top: auto; padding: 8px; font-size: 12px; }
+.inventory { margin-top: 24px; padding-top: 20px; border-top: 1px solid #dbe2d5; }
+.inventory h3 { margin: 0 0 14px; font-size: 14px; }
+.inventory-list { display: flex; flex-wrap: wrap; gap: 8px; }
+.destinations { display: grid; gap: 12px; }
+.destination { display: grid; grid-template-columns: 85px 1fr auto; gap: 17px; align-items: center; padding: 13px; border: 1px solid #dce3d6; border-radius: 13px; background: #fff; }
+.destination img { width: 85px; height: 85px; object-fit: cover; border-radius: 9px; }
+.destination h3 { margin: 0 0 7px; font-size: 15px; }
+.destination p { margin: 0 0 8px; font-size: 12px; color: #75806d; }
+.destination small { font-size: 11px; color: #7e8777; }
+.journal { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 18px; }
+.journal span { padding: 8px 12px; border-radius: 8px; background: #e8efdf; font-size: 12px; }
+html[data-ambience="evening"], html[data-ambience="rain"] { color: #eee7d7; }
+html[data-ambience="evening"] #pet-name, html[data-ambience="rain"] #pet-name,
+html[data-ambience="evening"] #behavior, html[data-ambience="rain"] #behavior { color: #b6c0c2; }
+html[data-ambience="evening"] .wallet strong, html[data-ambience="rain"] .wallet strong { color: #e4d9b7; }
+html[data-ambience="evening"] .wallet, html[data-ambience="rain"] .wallet { color: #b7c2c3; }
+.selection, .pet-actions, .trip-status, .message, .empty { color: #344039; }
+@media (max-width: 700px) {
+  .toolbar { inset: 15px 16px auto; align-items: start; }
+  .wordmark { font-size: 17px; }
+  #pet-name { display: none; }
+  .toolbar nav { flex-wrap: wrap; justify-content: end; max-width: 270px; gap: 5px; }
+  .toolbar button { padding: 8px 10px; font-size: 12px; }
+  .wallet { top: 98px; right: 18px; }
+  .scene-caption { left: 18px; bottom: 18px; }
+  .catalog { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .destination { grid-template-columns: 60px 1fr; gap: 12px; }
+  .destination img { width: 60px; height: 60px; }
+  .destination button { grid-column: 2; justify-self: start; }
+  .selection { width: calc(100% - 24px); flex-wrap: wrap; justify-content: center; bottom: 14px; }
+  .trip-status { bottom: 58px; right: 14px; }
+}
